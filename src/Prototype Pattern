@@ -1,0 +1,25 @@
+'''
+使用原型实例指定创建对象的种类，并通过拷贝这些创建新的实例，
+原型模式是一种新的创建型模式
+'''
+import copy
+
+class Resume:
+    def __init__(self,name):
+        self.name = name;
+    def set_work_exp(self,place,year):
+        self.place=place
+        self.year=year
+    def clone(self):
+        return copy.deepcopy(self)
+    def show(self):
+        print(self.name,self.place,self.year)
+
+
+
+Lily = Resume("Lily")
+Lily.set_work_exp("Xian","2011~2015")
+Haha = Lily.clone()
+Haha.set_work_exp("Hefei","2015~2018")
+Lily.show()
+Haha.show()
